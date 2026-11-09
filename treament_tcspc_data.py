@@ -205,7 +205,7 @@ def time_domain_visual_verification(samples: list, samples_off=[], show_mean=Fal
         # Find the number of frequencies measured for each particle
         freq_list = sorted(set([dic["freq"] for dic in sample_dic["sample_data"]]))
         cols = 4
-        rows = int(np.ceil(len(freq_list) / cols))
+        rows = int(np.ceil(len(freq_list) / cols)) if len(freq_list) > 4 else 1 
 
         # ---- Subplots de verificação visual ----
         fig, axs = plt.subplots(rows, cols, figsize=(12, 12), constrained_layout=True)
